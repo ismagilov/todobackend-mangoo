@@ -1,0 +1,51 @@
+# Application configuration
+# 
+# This file defines all configuration values for a mangoo I/O application.
+# The default values are loaded by default and overwritten by environment specific
+# values if they are configured.
+#
+# Possible environments are test and dev.
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+default:
+    application:
+        name       : todobackend
+        secret: 1234567890123456789012345678901234567890123456789012345678901234567890
+        masterkey: /Users/ilya/Work/Projects/todobackend-mangooio/pwd.txt
+        language   : en
+    connector:
+        http:
+            host      : localhost
+            port      : 8080          
+    auth:
+        redirect  : /login
+        cookie:
+            name    : todobackend-AUTH
+            encrypt : false
+            expires : 86400
+    cookie:
+        name       : todobackend-SESSION
+        expires    : 86400
+        encryption : false
+    smtp:
+        host       : localhost
+        port       : 25
+        username   : 
+        password   : 
+        ssl        : false
+        
+test:
+    connector:
+        http:
+            host      : localhost
+            port      : 9090 
+    smtp:
+        port       : 3025
+        
+dev:
+    connector:
+        http:
+            host      : localhost
+            port      : 9090 
+    smtp:
+        port       : 3025
