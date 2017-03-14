@@ -16,7 +16,7 @@ default:
     connector:
         http:
             host      : localhost
-            port      : 8080          
+            port      : 80
     auth:
         redirect  : /login
         cookie:
