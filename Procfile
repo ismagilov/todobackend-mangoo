@@ -1,1 +1,1 @@
-todobackend: java -jar target/mangooioapp.jar
+web: java -jar target/mangooioapp.jar
