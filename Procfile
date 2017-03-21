@@ -1,1 +1,1 @@
-web: java -Dhttp.host=$PORT -jar target/mangooioapp.jar
+web: java -Dhttp.port=$PORT -jar target/mangooioapp.jar
