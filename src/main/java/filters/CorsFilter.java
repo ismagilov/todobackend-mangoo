@@ -11,9 +11,6 @@ import io.undertow.util.Methods;
  */
 public class CorsFilter implements MangooRequestFilter {
     public Response execute(Request request, Response response) {
-
-        System.out.println("Global filter is executed");
-
         response.andHeader(HttpString.tryFromString("Access-Control-Allow-Origin"), "*");
         response.andHeader(HttpString.tryFromString("Access-Control-Allow-Methods"), "GET, POST, OPTIONS");
 

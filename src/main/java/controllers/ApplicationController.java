@@ -1,10 +1,7 @@
 package controllers;
 
-import filters.SimpleFilter;
-import io.mangoo.annotations.FilterWith;
 import io.mangoo.routing.Response;
 
-@FilterWith(SimpleFilter.class)
 public class ApplicationController {
     public Response index() {
         String hello = "Hello World!";
