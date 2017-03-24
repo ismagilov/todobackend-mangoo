@@ -13,7 +13,6 @@ public class ApplicationController {
     }
 
     public Response options() {
-        return Response.withOk();
+        return Response.withOk().andEmptyBody();
     }
-
 }

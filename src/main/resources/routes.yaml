@@ -19,3 +19,6 @@ routes:
   url: /todo
   mapping: ApplicationController.todo
 
+- method: OPTIONS
+  url: /
+  mapping: ApplicationController.options
