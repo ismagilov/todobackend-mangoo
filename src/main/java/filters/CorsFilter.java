@@ -12,11 +12,11 @@ import io.undertow.util.Methods;
 public class CorsFilter implements MangooRequestFilter {
     public Response execute(Request request, Response response) {
         response.andHeader(HttpString.tryFromString("Access-Control-Allow-Origin"), "*");
-        response.andHeader(HttpString.tryFromString("Access-Control-Allow-Methods"), "GET, POST, OPTIONS");
+        response.andHeader(HttpString.tryFromString("Access-Control-Allow-Methods"), "GET, POST, DELETE, OPTIONS");
 
         if (Methods.OPTIONS.equals(request.getMethod())) {
-            response.andHeader(HttpString.tryFromString("Access-Control-Request-Headers"),
-                    "Keep-Alive ,User-Agent ,X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Content-Range, Range");
+            response.andHeader(HttpString.tryFromString("Access-Control-Allow-Headers"),
+                    "Keep-Alive, User-Agent, X-Requested-With, If-Modified-Since, Cache-Control, Content-Type, Content-Range, Range");
             response.andHeader(HttpString.tryFromString("Access-Control-Max-Age"), Integer.toString(1728000));
         }
 
