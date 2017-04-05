@@ -1,0 +1,5 @@
+CREATE TABLE todo (
+  id BIGINT IDENTITY PRIMARY KEY,
+  title VARCHAR(256),
+  completed BOOL DEFAULT FALSE
+)
