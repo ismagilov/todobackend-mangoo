@@ -12,6 +12,11 @@ default:
         name       : todobackend
         secret: 1234567890123456789012345678901234567890123456789012345678901234567890
         language   : en
+        db:
+            init: RUNSCRIPT FROM 'classpath:/db/init.sql';
+            url: jdbc:h2:mem:todobackend;DB_CLOSE_DELAY=-1;
+            username: sa
+            password:
     connector:
         http:
             host      : localhost
