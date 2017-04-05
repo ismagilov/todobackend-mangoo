@@ -45,8 +45,8 @@ dev:
     application:
         admin:
             enable: true
-            username: cryptex[XnrslCZdmq9BW27skRxH5g==] #ilya - pwd.txt: sderokfoksm458349034rkwelkw34njk
-            password: "$2a$06$OCwDt.egSbum93F9DGgOo.5Fqgl3Je.IrV1HeELOMTtGZ87YDJ2Xm" #12345 - JBcrypt
+            username: ilya # cryptex[XnrslCZdmq9BW27skRxH5g==] #ilya - pwd.txt: sderokfoksm458349034rkwelkw34njk
+            password: $2a$06$OCwDt.egSbum93F9DGgOo.5Fqgl3Je.IrV1HeELOMTtGZ87YDJ2Xm #12345 - JBcrypt
         masterkey: /Users/ilya/Work/Projects/todobackend-mangooio/pwd.txt
     connector:
         http:
