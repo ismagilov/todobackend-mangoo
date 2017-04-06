@@ -50,8 +50,6 @@ public class ApplicationController {
     }
 
     public Response todo() {
-
-
         return Response.withOk().andJsonBody("TODO");
     }
 

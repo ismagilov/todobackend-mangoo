@@ -13,7 +13,6 @@ default:
         secret: 1234567890123456789012345678901234567890123456789012345678901234567890
         language   : en
         db:
-            init: RUNSCRIPT FROM 'classpath:/db/init.sql';
             url: jdbc:h2:mem:todobackend;DB_CLOSE_DELAY=-1;
             username: sa
             password:
@@ -50,7 +49,7 @@ dev:
     application:
         admin:
             enable: true
-            username: ilya # cryptex[XnrslCZdmq9BW27skRxH5g==] #ilya - master.txt: sderokfoksm458349034rkwelkw34njk
+            username: ilya #cryptext[XnrslCZdmq9BW27skRxH5g==] #ilya - master.txt: sderokfoksm458349034rkwelkw34njk
             password: $2a$06$OCwDt.egSbum93F9DGgOo.5Fqgl3Je.IrV1HeELOMTtGZ87YDJ2Xm #12345 - JBcrypt
         masterkey: /Users/ilya/Work/Projects/todobackend-mangooio/master.txt
     connector:
