@@ -17,7 +17,7 @@ public class Lifecycle implements MangooLifecycle {
 
     @Override
     public void applicationInitialized() {
-        System.out.println("Initialized: " + create.execute("RUNSCRIPT FROM 'classpath:/db/init.sql'"));
+        create.execute("RUNSCRIPT FROM 'classpath:/db/init.sql'");
     }
 
     @Override
