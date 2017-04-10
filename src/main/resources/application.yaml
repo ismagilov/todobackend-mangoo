@@ -9,10 +9,8 @@
 
 default:
     application:
+        secret: jkfhskhe7238647yh47d67t43dgh9dj3894dj
         name       : todobackend
-        secret: 1234567890123456789012345678901234567890123456789012345678901234567890
-        #cryptex[ak/sBnenQrAuSEd7xjWaRvZKrhorEViuN9+u2715aRAF0VNgVaMp6JH89+1UpN8gIosdo6bG7s430v+NLU1aKOkrcJeaKDIic7AM2cuLiJE=]
-        #1234567890123456789012345678901234567890123456789012345678901234567890
         language   : en
         db:
             url: jdbc:h2:mem:todobackend;DB_CLOSE_DELAY=-1;
@@ -38,7 +36,6 @@ default:
         username   : 
         password   : 
         ssl        : false
-        
 test:
     connector:
         http:
@@ -49,14 +46,17 @@ test:
         
 dev:
     application:
+        secret: cryptex[ak/sBnenQrAuSEd7xjWaRvZKrhorEViuN9+u2715aRAF0VNgVaMp6JH89+1UpN8gIosdo6bG7s430v+NLU1aKOkrcJeaKDIic7AM2cuLiJE=]
+        #cryptex[ak/sBnenQrAuSEd7xjWaRvZKrhorEViuN9+u2715aRAF0VNgVaMp6JH89+1UpN8gIosdo6bG7s430v+NLU1aKOkrcJeaKDIic7AM2cuLiJE=]
+        #1234567890123456789012345678901234567890123456789012345678901234567890
+        masterkey: /Users/ilya/Work/Projects/todobackend-mangooio/master.txt
         admin:
             enable: true
-            username: ilya
+            username: cryptex[XnrslCZdmq9BW27skRxH5g==]
             # ilya
             # cryptex[XnrslCZdmq9BW27skRxH5g==]
-            # master password: sderokfoksm458349034rkwelkw34njk
-            password: $2a$12$dLSHOqKzDEt6tictTGbn8epV0kTEbiWpHx/VVRDoUVpFiS2bu6I6y #12345 - JBcrypt
-            masterkey: /Users/ilya/Work/Projects/todobackend-mangooio/master.txt
+            password: $2a$12$dLSHOqKzDEt6tictTGbn8epV0kTEbiWpHx/VVRDoUVpFiS2bu6I6y
+            #12345
     connector:
         http:
             host      : localhost
