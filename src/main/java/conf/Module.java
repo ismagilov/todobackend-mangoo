@@ -5,7 +5,6 @@ import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import filters.CorsFilter;
 import io.mangoo.configuration.Config;
-import io.mangoo.core.Application;
 import io.mangoo.interfaces.MangooLifecycle;
 import io.mangoo.interfaces.MangooRequestFilter;
 import org.h2.jdbcx.JdbcDataSource;
@@ -24,18 +23,16 @@ public class Module extends AbstractModule {
     }
 
     @Provides @Singleton
-    DSLContext provideJooqContext() {
-        Config CONFIG = Application.getConfig();
-
+    DSLContext provideJooqContext(Config config) {
         JdbcDataSource h2ds = new JdbcDataSource();
-        h2ds.setURL(CONFIG.getString("application.db.url"));
-        h2ds.setUser(CONFIG.getString("application.db.username"));
-        h2ds.setPassword(CONFIG.getString("application.db.password"));
+        h2ds.setURL(config.getString("application.db.url"));
+        h2ds.setUser(config.getString("application.db.username"));
+        h2ds.setPassword(config.getString("application.db.password"));
 
-        DefaultConfiguration config = new DefaultConfiguration();
-        config.setDataSource(h2ds);
-        config.setSQLDialect(SQLDialect.H2);
+        DefaultConfiguration defConfig = new DefaultConfiguration();
+        defConfig.setDataSource(h2ds);
+        defConfig.setSQLDialect(SQLDialect.H2);
 
-        return DSL.using(config);
+        return DSL.using(defConfig);
     }
 }

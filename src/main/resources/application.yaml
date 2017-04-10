@@ -56,7 +56,7 @@ dev:
             # cryptex[XnrslCZdmq9BW27skRxH5g==]
             # master password: sderokfoksm458349034rkwelkw34njk
             password: $2a$12$dLSHOqKzDEt6tictTGbn8epV0kTEbiWpHx/VVRDoUVpFiS2bu6I6y #12345 - JBcrypt
-        masterkey: /Users/ilya/Work/Projects/todobackend-mangooio/master.txt
+            masterkey: /Users/ilya/Work/Projects/todobackend-mangooio/master.txt
     connector:
         http:
             host      : localhost
