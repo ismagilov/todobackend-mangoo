@@ -7,4 +7,5 @@ public class Todo {
     public long id;
     public String title;
     public boolean completed;
+    public String url;
 }

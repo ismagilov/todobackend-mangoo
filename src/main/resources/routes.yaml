@@ -11,14 +11,19 @@ routes:
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- method: GET
-  url: /
-  mapping: ApplicationController.index
-
-- method: GET
-  url: /todo
-  mapping: ApplicationController.todo
-
 - method: OPTIONS
   url: /
   mapping: ApplicationController.options
+
+- method: GET
+  url: /
+  mapping: ApplicationController.getAll
+
+- method: POST
+  url: /
+  mapping: ApplicationController.create
+
+- method: DELETE
+  url: /
+  mapping: ApplicationController.deleteAll
+
