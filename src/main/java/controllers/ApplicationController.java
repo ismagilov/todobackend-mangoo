@@ -43,7 +43,7 @@ public class ApplicationController {
     public Response deleteAll() {
         create.deleteFrom(TODO).execute();
 
-        return Response.withOk();
+        return Response.withOk().andEmptyBody();
     }
 
     public Response options() {
