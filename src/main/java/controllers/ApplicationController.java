@@ -14,16 +14,20 @@ import static jooq.tables.Todo.TODO;
 public class ApplicationController {
     @Inject private DSLContext create;
 
-    public Response get(String id) {
-        System.out.println(id);
+    public Response get(Request r, long id) {
+        Todo t = create.selectFrom(TODO).where(TODO.ID.eq(id)).fetchAnyInto(Todo.class);
 
-        return Response.withOk().andEmptyBody();
+        if (null != t) {
+            t.url = r.getURL();
+            return Response.withOk().andJsonBody(t);
+        } else return Response.withOk().andEmptyBody();
+
     }
 
     public Response getAll(Request r) {
         List<Todo> result = create.selectFrom(TODO).fetchInto(Todo.class);
 
-        result.stream().forEach(todo -> todo.url = composeUrl(r, todo.id));
+        result.stream().forEach(todo -> todo.url = appendIdToUrl(r, todo.id));
 
         return Response.withOk().andJsonBody(result);
     }
@@ -32,7 +36,7 @@ public class ApplicationController {
         TodoRecord tr = create.insertInto(TODO).columns(TODO.TITLE).values(t.title).returning(TODO.ID).fetchOne();
 
         t.id = tr.get(TODO.ID);
-        t.url = composeUrl(r, t.id);
+        t.url = appendIdToUrl(r, t.id);
 
         return Response.withOk().andJsonBody(t);
     }
@@ -48,7 +52,9 @@ public class ApplicationController {
     }
 
 
-    private String composeUrl(Request r, long id) {
+    private String appendIdToUrl(Request r, long id) {
+        System.out.println(r.getAttributes());
+
         return (r.getURL().endsWith("/")) ? r.getURL() + id : r.getURL() + "/" + id;
     }
 

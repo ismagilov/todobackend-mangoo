@@ -15,9 +15,17 @@ routes:
   url: /
   mapping: ApplicationController.options
 
+- method: OPTIONS
+  url: /{id}
+  mapping: ApplicationController.options
+
 - method: GET
   url: /
   mapping: ApplicationController.getAll
+
+- method: GET
+  url: /{id}
+  mapping: ApplicationController.get
 
 - method: POST
   url: /
