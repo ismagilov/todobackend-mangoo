@@ -13,5 +13,7 @@ public class Todo {
     @JsonInclude
     public boolean completed;
     @JsonInclude
+    public int order;
+    @JsonInclude
     public String url;
 }

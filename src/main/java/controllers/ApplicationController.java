@@ -5,9 +5,13 @@ import io.mangoo.routing.Response;
 import io.mangoo.routing.bindings.Request;
 import jooq.tables.records.TodoRecord;
 import model.Todo;
+import model.TodoPatch;
 import org.jooq.DSLContext;
+import org.jooq.Field;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static jooq.tables.Todo.TODO;
 
@@ -47,6 +51,26 @@ public class ApplicationController {
         return Response.withOk().andEmptyBody();
     }
 
+    public Response modify(Request r, long id, TodoPatch tp) {
+        Map<Field<?>, Object> values = new HashMap<>();
+
+        if (null != tp.completed)
+            values.put(TODO.COMPLETED, tp.completed);
+        if (null != tp.title)
+            values.put(TODO.TITLE, tp.title);
+        if (null != tp.order)
+            values.put(TODO.ORDER, tp.order);
+
+        int result = create.update(TODO).set(values).where(TODO.ID.eq(id)).execute();
+
+        if (1 == result) {
+            Todo t = create.selectFrom(TODO).where(TODO.ID.eq(id)).fetchAnyInto(Todo.class);
+            t.url = r.getURL();
+            return Response.withOk().andJsonBody(t);
+        } else
+            return Response.withOk().andEmptyBody();
+    }
+
     public Response deleteAll() {
         create.deleteFrom(TODO).execute();
 
@@ -77,4 +101,12 @@ public class ApplicationController {
 
     //GET: http://todobackend-spring.herokuapp.com//4
     //{"title":"my todo","completed":false,"url":"http://todobackend-spring.herokuapp.com//4","order":null}
+
+//    Request URL:http://todobackend-spring.herokuapp.com//7
+//    Request Method:PATCH
+//
+//    {completed: true}
+//    {title: "bathe the cat"}
+//    {title: "changed title", completed: true}
+//    {order: 95}
 }

@@ -38,3 +38,7 @@ routes:
 - method: DELETE
   url: /{id}
   mapping: ApplicationController.delete
+
+- method: POST
+  url: /{id}
+  mapping: ApplicationController.modify
