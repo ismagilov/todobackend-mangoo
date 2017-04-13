@@ -41,6 +41,12 @@ public class ApplicationController {
         return Response.withOk().andJsonBody(t);
     }
 
+    public Response delete(long id) {
+        create.deleteFrom(TODO).where(TODO.ID.eq(id)).execute();
+
+        return Response.withOk().andEmptyBody();
+    }
+
     public Response deleteAll() {
         create.deleteFrom(TODO).execute();
 
@@ -53,8 +59,6 @@ public class ApplicationController {
 
 
     private String appendIdToUrl(Request r, long id) {
-        System.out.println(r.getAttributes());
-
         return (r.getURL().endsWith("/")) ? r.getURL() + id : r.getURL() + "/" + id;
     }
 
