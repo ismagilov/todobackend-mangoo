@@ -39,6 +39,6 @@ routes:
   url: /{id}
   mapping: ApplicationController.delete
 
-- method: POST
+- method: PATCH
   url: /{id}
   mapping: ApplicationController.modify

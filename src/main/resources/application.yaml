@@ -45,18 +45,6 @@ test:
         port       : 3025
         
 dev:
-    application:
-        secret: cryptex[ak/sBnenQrAuSEd7xjWaRvZKrhorEViuN9+u2715aRAF0VNgVaMp6JH89+1UpN8gIosdo6bG7s430v+NLU1aKOkrcJeaKDIic7AM2cuLiJE=]
-        #cryptex[ak/sBnenQrAuSEd7xjWaRvZKrhorEViuN9+u2715aRAF0VNgVaMp6JH89+1UpN8gIosdo6bG7s430v+NLU1aKOkrcJeaKDIic7AM2cuLiJE=]
-        #1234567890123456789012345678901234567890123456789012345678901234567890
-        masterkey: /Users/ilya/Work/Projects/todobackend-mangooio/master.txt
-        admin:
-            enable: true
-            username: cryptex[XnrslCZdmq9BW27skRxH5g==]
-            # ilya
-            # cryptex[XnrslCZdmq9BW27skRxH5g==]
-            password: $2a$12$dLSHOqKzDEt6tictTGbn8epV0kTEbiWpHx/VVRDoUVpFiS2bu6I6y
-            #12345
     connector:
         http:
             host      : localhost

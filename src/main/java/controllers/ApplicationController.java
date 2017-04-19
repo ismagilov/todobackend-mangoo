@@ -85,28 +85,4 @@ public class ApplicationController {
     private String appendIdToUrl(Request r, long id) {
         return (r.getURL().endsWith("/")) ? r.getURL() + id : r.getURL() + "/" + id;
     }
-
-    //POST: {"title":"a todo"}
-    //{"title":"a todo","completed":false,"url":"http://todobackend-spring.herokuapp.com//28","order":null}
-
-    //DELETE: / - deletes all todos
-    //
-
-    //GET: / - returns all as an array
-    //[{"id":1,"title":"walk the dog","completed":false,"order":0,"url":"https://todo-backend-spring4-java8.herokuapp.com/todos/1"}]
-
-//    Request URL:http://todobackend-mangooio.herokuapp.com/5
-//    Request Method:OPTIONS
-//    Status Code:404 Not Found
-
-    //GET: http://todobackend-spring.herokuapp.com//4
-    //{"title":"my todo","completed":false,"url":"http://todobackend-spring.herokuapp.com//4","order":null}
-
-//    Request URL:http://todobackend-spring.herokuapp.com//7
-//    Request Method:PATCH
-//
-//    {completed: true}
-//    {title: "bathe the cat"}
-//    {title: "changed title", completed: true}
-//    {order: 95}
 }
