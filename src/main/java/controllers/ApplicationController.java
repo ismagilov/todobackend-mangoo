@@ -3,6 +3,7 @@ package controllers;
 import com.google.inject.Inject;
 import io.mangoo.routing.Response;
 import io.mangoo.routing.bindings.Request;
+import io.undertow.util.HttpString;
 import jooq.tables.records.TodoRecord;
 import model.Todo;
 import model.TodoPatch;
@@ -83,6 +84,12 @@ public class ApplicationController {
 
 
     private String appendIdToUrl(Request r, long id) {
-        return (r.getURL().endsWith("/")) ? r.getURL() + id : r.getURL() + "/" + id;
+        String proto = r.getHeader(HttpString.tryFromString("X-Forwarded-Proto"));
+        String url = r.getURL();
+        if (null != proto)
+            url = url.replaceFirst("^https?://", proto + "://");
+
+        return (url.endsWith("/")) ? url + id : url + "/" + id;
     }
+
 }
